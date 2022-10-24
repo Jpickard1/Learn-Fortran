@@ -27,9 +27,9 @@ int main(int argc, char ** argv)
         // Read Command Line Arguments
         double globalLower, globalUpper;
         int numUnits;
-        globalLower = argv[0];
-        globalUpper = argv[1];
-        numUnits    = argv[2];
+        globalLower = atof(argv[0]);
+        globalUpper = atof(argv[1]);
+        numUnits    = atoi(argv[2]);
 
         cout << "Node: " << node << ", globalLower: " << globalLower << ", globalUpper: " << globalUpper << ", numUnits: " << numUnits << endl;
 

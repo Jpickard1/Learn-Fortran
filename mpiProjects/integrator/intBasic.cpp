@@ -27,9 +27,9 @@ int main(int argc, char ** argv)
         // Read Command Line Arguments
         double globalLower, globalUpper;
         int numUnits;
-        globalLower = atof(argv[0]);
-        globalUpper = atof(argv[1]);
-        numUnits    = atoi(argv[2]);
+        globalLower = atof(argv[1]);
+        globalUpper = atof(argv[2]);
+        numUnits    = atoi(argv[3]);
 
         cout << "Node: " << node << ", globalLower: " << globalLower << ", globalUpper: " << globalUpper << ", numUnits: " << numUnits << endl;
 
@@ -39,11 +39,13 @@ int main(int argc, char ** argv)
         double nodeStart = globalLower + (nodeRange * node);
         double epsilon = nodeRange / numUnits;
 
+	cout << "Node: " << node << ", nodeStart: " << nodeStart << ", nodeRange" << nodeRange << ", epsilon: " << epsilon << endl;
+
         double sum = 0.0;
         for (int i=0; i < numUnits; i++) {
             sum += func(nodeStart + i * epsilon);
         }
-        sum /= epsilon;
+        sum *= epsilon;
 
         cout << "Node: " << node << ", sum: " << sum << endl;
 
